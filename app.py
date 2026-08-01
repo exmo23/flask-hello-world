@@ -1,5 +1,8 @@
 from flask import Flask
 import os
+import psycopg2
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
 app = Flask(__name__)
 
 @app.route('/')
@@ -11,10 +14,10 @@ def hello_world():
 def db_test():
     conn = None
     try:
-        DATABASE_URL = os.environ.get("DATABASE_URL")
-        
+        conn = psycopg2.connect(DATABASE_URL)
+        return "Database connection successful"
     except Exception as e:
-        return "database connection failed: {e}"
+        return f"Database connection failed: {e}"
     finally:
         if conn is not None:
             conn.close()
