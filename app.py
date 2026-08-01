@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 import psycog2
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def db_test():
     try:
         DATABASE_URL = os.environ.get("DATABASE_URL")
         conn = psycog2.connect(DATABASE_URL)
-
+    except Exception as e:
+        return "database connection failed: {e}"
     finally:
         if conn is not None:
             conn.close()
