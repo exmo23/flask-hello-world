@@ -68,7 +68,7 @@ def db_insert():
             ('Stephen', 'Curry', 'San Francisco', 'Warriors', 30), \
             ('Nikola', 'Jokic', 'Denver', 'Nuggets', 15), \
             ('Kawhi', 'Leonard', 'Los Angeles', 'Clippers', 2), \
-            ('YOUR_FIRST_NAME', 'YOUR_LAST_NAME', 'CU Boulder', 'YOUR_TEAM_OR_LABEL', 3308);")
+            ('Alex', 'Mohr', 'CU Boulder', 'SCDB', 3308);")
 
         conn.commit()
         return "Successful database creation"
